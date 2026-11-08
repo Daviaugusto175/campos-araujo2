@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Campos Araújo | Gestão de Ovinos</title>
+
+  <!-- Tema: aplica a escolha salva antes de pintar a página (evita o "flash" do tema errado) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f4f0e6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f140f" media="(prefers-color-scheme: dark)">
+
+  <!-- Ícones -->
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Quando adicionado à tela inicial do iPhone, abre como app -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Campos Araújo">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Fonte: SF Pro (nativa em Apple) com Inter como alternativa nos demais aparelhos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="#/dashboard" aria-label="Campos Araújo — início">
+        <span class="brand-mark"><img src="img/logo.png" alt="" width="40" height="40"></span>
+        <span class="brand-text"><strong>Campos Araújo</strong><small>Gestão de Ovinos</small></span>
+      </a>
+      <nav class="nav" id="sideNav" aria-label="Menu principal"></nav>
+      <div class="side-note">
+        <span class="dot-live"></span> Dados salvos neste navegador
+        <small>Gestão do rebanho · 2.0</small>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar" id="topbar">
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="search">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="globalSearch" type="search" placeholder="Buscar pelo nº do brinco" aria-label="Buscar animal pelo número do brinco" autocomplete="off" inputmode="search">
+          <div id="searchResults" class="results hidden"></div>
+        </div>
+        <button class="icon-btn theme-btn" id="themeToggle" type="button" aria-label="Alternar entre tema claro e escuro" title="Alternar tema"></button>
+        <a class="avatar" href="#/dashboard" title="Campos Araújo" aria-label="Campos Araújo"><img src="img/logo.png" alt="" width="28" height="28"></a>
+      </header>
+
+      <main id="view" class="view" tabindex="-1" aria-busy="true">
+        <!-- Esqueleto exibido enquanto o aplicativo carrega -->
+        <div class="skeleton-grid" aria-hidden="true">
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+        </div>
+        <noscript><p class="hint">Este sistema precisa de JavaScript para funcionar.</p></noscript>
+      </main>
+
+      <footer class="footer">Campos Araújo <span>•</span> Sistema de gestão de ovinos</footer>
+    </div>
+  </div>
+
+  <nav class="tabbar" id="tabBar" aria-label="Navegação"></nav>
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
